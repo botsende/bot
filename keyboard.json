@@ -1,0 +1,27 @@
+{
+  "one_time": true,
+  "buttons": [
+    [{
+      "action": {
+        "type": "text",
+        "label": "Профиль"
+      },
+      "color": "secondary"
+    },
+      {
+        "action": {
+          "type": "text",
+          "label": "Баланс"
+        },
+        "color": "secondary"
+      },
+       
+        {
+      "action": {
+        "type": "text",
+        "label": "Правила"
+      },
+      "color": "secondary"
+    }]
+  ]
+}
