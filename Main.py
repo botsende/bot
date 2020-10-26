@@ -5,7 +5,7 @@ import peremen
 
 from vk_api.longpoll import VkLongPoll, VkEventType
 
-vk_session = vk_api.VkApi(token="7d52fabe1fc3eba4bdcf40f0a6f346345d72d0f02490712b01973cb6beaa966db1cec650fee0146b55c8f")
+vk_session = vk_api.VkApi(token="115dee4d1a05e66bc577c36c826ac2b3f19b79e8759256f82177a7bd42db28cfeff5555b0d209f48ddb12")
 
 longpoll = VkLongPoll(vk_session)
 
