@@ -125,7 +125,7 @@ while True:
                     balance1 = c.fetchone()
                     
                     plus = int(event.text.split()[1])
-                    if (plus - balance1[0]) >= 0:
+                    if plus < 0:
                       user_id=event.user_id,
                       c.execute("""SELECT admin FROM user_info WHERE user_id = ? """, (user_id))
                       admins = c.fetchone()
@@ -147,7 +147,7 @@ while True:
                     else:
                       vk.messages.send(
                         user_id=event.user_id,
-                        message="Вы ввели число больше вашего баланса!",
+                        message="Вы ввели отрицательное число!",
                         random_id=random_id())
             
             
