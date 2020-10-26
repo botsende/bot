@@ -120,24 +120,34 @@ while True:
                  if get_user_wish(event.user_id) == 1:
                   stroka=event.text.split()
                   if len(stroka) == 2:
-                    plus = int(event.text.split()[1])
                     user_id=event.user_id,
-                    c.execute("""SELECT admin FROM user_info WHERE user_id = ? """, (user_id))
-                    admins = c.fetchone()
-                    print(admins[0])
-                    if admins[0] == 1:
+                    c.execute("""SELECT balance FROM user_info WHERE user_id = ? """, (user_id))
+                    balance1 = c.fetchone()
+                    
+                    plus = int(event.text.split()[1])
+                    if (plus - balance1[0]) >= 0:
                       user_id=event.user_id,
-                      c.execute("""SELECT balance FROM user_info WHERE user_id = ? """, (user_id))
-                      balance1 = c.fetchone()
-                      user_id=event.user_id,
+                      c.execute("""SELECT admin FROM user_info WHERE user_id = ? """, (user_id))
+                      admins = c.fetchone()
+                      print(admins[0])
+                      if admins[0] == 1:
+                        user_id=event.user_id,
+                        c.execute("""SELECT balance FROM user_info WHERE user_id = ? """, (user_id))
+                        balance1 = c.fetchone()
+                        user_id=event.user_id,
                       
-                      plusbalance(plus, event.user_id)
-                      user_id=event.user_id,
-                      c.execute("""SELECT balance FROM user_info WHERE user_id = ? """, (user_id))
-                      balance1 = c.fetchone()
-                      vk.messages.send(
+                        plusbalance(plus, event.user_id)
+                        user_id=event.user_id,
+                        c.execute("""SELECT balance FROM user_info WHERE user_id = ? """, (user_id))
+                        balance1 = c.fetchone()
+                        vk.messages.send(
                         user_id=event.user_id,
                         message=f"Успешно начислено!\nТеперь ваш баланс: {balance1[0]}$🤑",
+                        random_id=random_id())
+                    else:
+                      vk.messages.send(
+                        user_id=event.user_id,
+                        message="Вы ввели число больше вашего баланса!",
                         random_id=random_id())
             
             
