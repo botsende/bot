@@ -228,6 +228,11 @@ while True:
                                 message=f"❌Проигрыш!\nВаш баланс теперь: {balance1[0]}$😔",
                                 keyboard=open("keyboard.json", "r", encoding="UTF-8").read(),
                             random_id=random_id())
+                        else:
+                             vk.messages.send(
+                                user_id=event.user_id,
+                                message="Вы указали не верную ставку",
+                            random_id=random_id())
             
                                 
             elif event.text.lower()[0:5] == "кубик": 
