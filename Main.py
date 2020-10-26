@@ -159,7 +159,7 @@ while True:
                       c.execute("""SELECT admin FROM user_info WHERE user_id = ? """, (user_id))
                       status = c.fetchone()
                       if status[0] == 1:
-                        status1 = "Админ👑"
+                        status1 = "Вип👑"
                         vk.messages.send(
                           user_id=event.user_id,
                           message=f"{nick2[0]}, твой профиль:\n🔎ID: {users_id[0]}\n🌀Твой статус: {status1}\n💰Баланс: {balance1[0]}$",
@@ -167,7 +167,7 @@ while True:
                           random_id=random_id()
                            )
                       else:
-                        status1 = "Игрок"
+                        status1 = "Игрок👍"
                         vk.messages.send(
                           user_id=event.user_id,
                           message=f"{nick2[0]}, твой профиль:\n🔎ID: {users_id[0]}\n🌀Твой статус: {status1}\n💰Баланс: {balance1[0]}$",
