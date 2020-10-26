@@ -125,7 +125,7 @@ while True:
                     balance1 = c.fetchone()
                     
                     plus = int(event.text.split()[1])
-                    if plus < 0:
+                    if plus > 0:
                       user_id=event.user_id,
                       c.execute("""SELECT admin FROM user_info WHERE user_id = ? """, (user_id))
                       admins = c.fetchone()
