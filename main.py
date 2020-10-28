@@ -57,8 +57,9 @@ while True:
               if len(stroka) == 3:
                 idp=int(event.text.split()[1])
                 summa=int(event.text.split()[2])
-                idp2=collection.find_one({"_id": idp})
-                if idp2 != None:
+                if summa >= 0:
+                  idp2=collection.find_one({"_id": idp})
+                  if idp2 != None:
                     balance=collection.find_one({"_id":event.user_id})["balance"]
                     if balance >= summa:
                       balancep=collection.find_one({"_id":idp})["balance"]
@@ -78,12 +79,23 @@ while True:
                         keyboard=open("keyboard.json", "r", encoding="UTF-8").read(),
                         random_id=random_id())
                             
+                  else:
+                    vk.messages.send(
+                      user_id=event.user_id,
+                      message="❌Юзера с таким id не найдено!",
+                      keyboard=open("keyboard.json", "r", encoding="UTF-8").read(),
+                      random_id=random_id()) 
                 else:
-                  vk.messages.send(
-                    user_id=event.user_id,
-                    message="❌Юзера с таким id не найдено!",
-                    keyboard=open("keyboard.json", "r", encoding="UTF-8").read(),
-                    random_id=random_id()) 
+
+                    vk.messages.send(
+
+                      user_id=event.user_id,
+
+                      message="❌Введена отрицательная сумма!",
+
+                      keyboard=open("keyboard.json", "r", encoding="UTF-8").read(),
+
+                      random_id=random_id()) 
             else:
               vk.messages.send(
                   user_id=event.user_id,
