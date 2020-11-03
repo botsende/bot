@@ -62,5 +62,8 @@ def echo_all(message):
       if lang == "ru":
         bot.send_message(message.chat.id, "Неверно указан город!")
         break
+      else:
+        bot.send_message(message.chat.id, "City is incorrect!")
+        break
   
 bot.polling()
