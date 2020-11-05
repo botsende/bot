@@ -55,8 +55,10 @@ def poisk(message):
       temperature = title.select_one('div', class_= 'min')
       temperature1 = temperature.select_one('b').text
       temperature2 = title.select('b')[1].text
-      
-      bot.send_message(message.chat.id, f'Мин: {str(temperature1)}\nМакс: {str(temperature2)}')
+     
+      time = datetime.now()
+      time2 = time.strftime('%Y-%m-%d %H:%M:%S')
+      bot.send_message(message.chat.id, f'Мин: {str(temperature1)}\nМакс: {str(temperature2)}\n⌚Дата/время: {time2}(МСК)')
       break
     except Exception:
       bot.send_message(message.chat.id, 'Неверно указан город или указывайте на русском!')
