@@ -5,6 +5,7 @@ from googletrans import Translator
 translator = Translator()
 from pymongo import MongoClient
 from datetime import datetime
+from datetime import timedelta
 
 cluster = MongoClient("mongodb://zazikbot:dtgDT9x9HHAoZwuP@cluster0-shard-00-00.4teix.mongodb.net:27017,cluster0-shard-00-01.4teix.mongodb.net:27017,cluster0-shard-00-02.4teix.mongodb.net:27017/db?ssl=true&replicaSet=atlas-46qpsn-shard-0&authSource=admin&retryWrites=true&w=majority")
 db=cluster["db"]
