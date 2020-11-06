@@ -12,7 +12,7 @@ db=cluster["db"]
 collection=db["user_info"]
 
 
-TOKEN = '1466172425:AAHcy7I__-sRO3KyDvEbRqYWh2XnNPtIGmo'
+TOKEN = '1415859615:AAG7VHsj3pOoy0XHo07lUTPeerC2xf7Lkes'
 bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=["start"])
