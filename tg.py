@@ -62,7 +62,7 @@ def poisk(message):
       date = datetime.today().strftime("%Y-%m-%d")
       time = (datetime.today() + timedelta(hours=3)).strftime("%H.%M.%S")
       bot.send_message(message.chat.id, f'Мин: {str(temperature1)}\nМакс: {str(temperature2)}\n📅Дата: {date}\n⌚Время: {time}(МСК)')
-    break
+      break
     except Exception:
       bot.send_message(message.chat.id, 'Неверно указан город или указывайте на русском!')
       break
