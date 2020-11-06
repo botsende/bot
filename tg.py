@@ -12,7 +12,7 @@ db=cluster["db"]
 collection=db["user_info"]
 
 
-TOKEN = '1415859615:AAG7VHsj3pOoy0XHo07lUTPeerC2xf7Lkes'
+TOKEN = '1466172425:AAHcy7I__-sRO3KyDvEbRqYWh2XnNPtIGmo'
 bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=["start"])
@@ -59,12 +59,12 @@ def poisk(message):
       temperature2 = title.select('b')[1].text
      
       
-      date = (datetime.today().strftime("%Y-%m-%d")
+      date = datetime.today().strftime("%Y-%m-%d")
       time = (datetime.today() + timedelta(hours=3)).strftime("%H.%M.%S")
-      bot.send_message(message.chat.id, f'Мин: {str(temperature1)}\nМакс: {str(temperature2)}\n📅Дата: {today}\n⌚Время: {time}(МСК)')
- 
-      break
+      bot.send_message(message.chat.id, f'Мин: {str(temperature1)}\nМакс: {str(temperature2)}\n📅Дата: {date}\n⌚Время: {time}(МСК)')
+    break
     except Exception:
       bot.send_message(message.chat.id, 'Неверно указан город или указывайте на русском!')
       break
+      
 bot.polling()
